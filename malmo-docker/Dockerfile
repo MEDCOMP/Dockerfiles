@@ -26,7 +26,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libav-tools \
     wget \
     unzip \
-    xvfb && \
+#    xvfb && \
+    xpra && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
 # Download and unpack Malmo
