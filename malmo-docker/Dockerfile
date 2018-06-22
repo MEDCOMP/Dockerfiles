@@ -17,7 +17,7 @@
 
 FROM ubuntu:16.04
 
-ENV MALMO_VERSION 0.31.0
+ENV MALMO_VERSION 0.34.0
 
 # Install Malmo dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -26,13 +26,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libav-tools \
     wget \
     unzip \
-#    xvfb && \
+    python-rencode \
     xpra && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
 # Download and unpack Malmo
 WORKDIR /root
-#https://github.com/Microsoft/malmo/releases/download/0.31.0/Malmo-0.31.0-Linux-Ubuntu-16.04-64bit_withBoost_Python2.7.zip
+#RUN wget https://github.com/Microsoft/malmo/releases/download/0.34.0/Malmo-0.34.0-Linux-Ubuntu-16.04-64bit_withBoost_Python2.7.zip
 RUN wget https://github.com/Microsoft/malmo/releases/download/$MALMO_VERSION/Malmo-$MALMO_VERSION-Linux-Ubuntu-16.04-64bit_withBoost_Python2.7.zip && \
     unzip Malmo-$MALMO_VERSION-Linux-Ubuntu-16.04-64bit_withBoost_Python2.7.zip && \
     rm Malmo-$MALMO_VERSION-Linux-Ubuntu-16.04-64bit_withBoost_Python2.7.zip && \
